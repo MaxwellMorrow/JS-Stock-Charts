@@ -7,7 +7,7 @@ async function main() {
 
     let res = await fetch("https://api.twelvedata.com/time_series?symbol=AAPL,EUR/USD,IXIC&interval=1min&apikey=59eaead937674d3b81f4d6066f13c2b9",)
     let stonks =await res.json();
-    console.log(stonks)
+    
 
 
     const { GME, MSFT, DIS, BNTX } = mockData;
@@ -69,9 +69,13 @@ function getColor(stock){
     }
 }
 main()
-getHighestStockValue(stocks)
 
-function getHighestStockValue (stocks){
-    stocks.filter(stocks => Math.max(stocks.values.high))
-    }
-console.log(getHighestStockValue(stocks))
+
+console.log(stocks)
+//  this is the way to access the high value for each stock 
+console.log(stocks[1].values[1].high)
+// now we need to figure out how to find the highest of all of them 
+
+function highestStockValue(stock){
+stock.value.filter(value => value.high)
+}
